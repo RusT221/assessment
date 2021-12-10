@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { SharedService } from './../../shared.service';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -15,8 +16,19 @@ export class DisplayComponent implements OnInit {
 
   columnsToDisplay = ["id","username", "name", "email", "actions"]
 
-  //init service inside constructor
-  constructor(private sharedService: SharedService) { }
+  //init service and variables inside constructor
+  constructor(private sharedService: SharedService,
+    private _snackbar: MatSnackBar) { }
+
+  //delete action based on ID
+  delete(id: number) {
+    this.sharedService.deleteUser(id).subscribe(data => {
+     //display snackbar upon successful deletion
+     this._snackbar.open("User Deleted");
+    }, err => {
+      this._snackbar.open("User Deletion Failed!");
+    })   
+  }
 
   ngOnInit(): void {
     //return all users

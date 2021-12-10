@@ -8,13 +8,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  //add url here
+  //reqres url here
   readonly APIUrl = "https://reqres.in/api/users";
   readonly UsersUrl = "https://reqres.in/api/users?page=2";
 
-  //alternative using string
+  //alternative API using string
   BaseUrl: string = "https://jsonplaceholder.typicode.com/";
-  RecordUrl: string = "https://jsonplaceholder.typicode.com/users";
 
   //instantiate http client
   constructor(private http:HttpClient) { }
@@ -29,17 +28,19 @@ export class SharedService {
   //   return this.http.get(this.UsersUrl);
   // }
 
- //add user - pass user object to API URL
+ //function to add user - pass user object to API URL
  addUser(userObject: any){
    return this.http.post(this.APIUrl + 'users', userObject);
  }
 
-  updateUser(val:any){
-    return this.http.put(this.APIUrl, val);
+ //function to update user based on ID
+  updateUser(id:any){
+    return this.http.put(this.BaseUrl, id);
   }
 
-  deleteUser(val:any){
-    return this.http.delete(this.APIUrl, val);
+  //function to delete user based on ID
+  deleteUser(id:any){
+    return this.http.delete(this.BaseUrl, id);
   }
 
 }

@@ -14,7 +14,7 @@ export class AddComponent implements OnInit {
   addUserForm: FormGroup = new FormGroup({ });
 
   constructor(private formBuilder: FormBuilder, 
-    private sharedService:SharedService,
+    private sharedService: SharedService,
     private _snackbar: MatSnackBar) { }
 
   //initialize form builder
