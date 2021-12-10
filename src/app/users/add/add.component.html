@@ -1,0 +1,32 @@
+<div class="addUser">
+<mat-card>
+  <mat-card-title>Add User</mat-card-title>
+  <mat-card-content>
+    <!-- should be same as in TS file property -->
+    <form [formGroup]="addUserForm" (submit)="createUser()">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your Name</mat-label>
+          <input matInput placeholder="Username" formControlName="username" />
+          <!-- <mat-icon matSuffix>Person</mat-icon> -->
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your Profession</mat-label>
+          <input
+            matInput
+            placeholder="Profession"
+            formControlName="profession"
+          />
+          <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+          <mat-hint>Should be less than 20 characters</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <button mat-raised-button color="primary">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+</div>

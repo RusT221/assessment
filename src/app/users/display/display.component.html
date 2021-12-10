@@ -1,0 +1,47 @@
+<div class="mat-title"> Manage Users</div>
+<!-- 
+<mat-list role="list">
+    <mat-list-item role ="listitem" *ngFor="let user of listUsers">
+        {{ user.name }}
+    </mat-list-item>
+</mat-list> -->
+<div>
+<table mat-table [dataSource]="listUsers">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>Username</th>
+        <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>   
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-raised-button color="primary"> Edit</button> 
+          <button mat-raised-button color="warn"> Delete </button> 
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+</table>
+
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+showFirstLastButtons 
+aria-label="Select page of user records">
+</mat-paginator> -->
+
+</div>
