@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
 
-#Data Capture Experts - Angular Assessment done by Dihan Perera using Angular Material
+Data Capture Experts - Angular Assessment done by Dihan Perera using Angular Material
 
 
 ## Development server
